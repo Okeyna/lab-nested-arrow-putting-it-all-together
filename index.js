@@ -5,6 +5,7 @@ const createLoginTracker = (userInfo) => {
   return (passwordAttempt) => {
     attemptCount++;
     if (passwordAttempt === userInfo.password && attemptCount <= 3) {
+      attemptCount = 0; // Reset attempt count on successful login
       return "Login successful";
     } else if (passwordAttempt !== userInfo.password || attemptCount > 3) {
       if (attemptCount <= 3) {
